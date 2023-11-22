@@ -168,22 +168,6 @@ function changeButtonRed(){
   redButton.display = 'none';
   greenButton.display = 'block';
 }
-// SEARCH INPUT
-
-searchInput.addEventListener("input", e => {
-  const value = e.target.value.toLowerCase();
-  console.log(value);
-  const chName = document.querySelector(".chName")
-  chName.forEach(name => {
-    let text = name.textContent;
-    if(text.toLowerCase().includes(searchInput.value.toLowerCase())){
-      characterContainer.style.display = " ";
-    }else{
-      characterContainer.children.innerHTML = "";
-    }
-  })
-
-})
 
 // FILTERS
 

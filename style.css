@@ -14,18 +14,6 @@ header .header-container {
   text-align: center;
   margin-top: 6vh;
 }
-header .header-container input {
-  width: 320px;
-}
-header .header-container button, header .header-container input {
-  padding: 10px 20px;
-  outline: none;
-  font-weight: bold;
-  background: none;
-  border: none;
-  border: 2px solid white;
-  color: white;
-}
 header .green-button {
   background-color: #198754;
   color: white;

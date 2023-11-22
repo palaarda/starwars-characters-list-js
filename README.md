@@ -1,2 +1,3 @@
 # starwars-characters-list-js
-not complete, to be update
+## Live Demo:
+https://palaarda.github.io/starwars-characters-list-js/

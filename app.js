@@ -1,4 +1,4 @@
-const characters = [
+let characters = [
   {
     "id": 1,
     "name": "Luke Skywalker",
@@ -87,7 +87,7 @@ const characters = [
     "id": 15,
     "name": "Greedo",
     "pic": "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg",
-    "homeworld": "Rodia"
+    "homeworld": "rodia"
   },
   {
     "id": 16,
@@ -127,7 +127,7 @@ const characterContainer = document.querySelector('.row');
 
 
 function getAllCharacter(){
-  allCh = characters.map(function (item){
+    characters.forEach(function (item){
     const characterName = item.name;
     const characterHomeWorld = item.homeworld[0].toUpperCase() + item.homeworld.slice(1);;
     const characterPic = item.pic;
@@ -137,12 +137,12 @@ function getAllCharacter(){
     characterEl.classList.add('col-md-4');
     characterEl.classList.add('col-lg-3');
     characterEl.classList.add('character-column');
-    characterEl.innerHTML = `
+    characterEl.innerHTML += `
         <div>
             <div class="card">
                 <img src="${characterPic}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <p class="card-text">Name: <span class="chName">${characterName}</span></p> 
+                    <p class="card-text">Name: ${characterName}</p> 
                     <p class="card-text">Home World: ${characterHomeWorld}</p>
                 </div>
             </div>
@@ -150,7 +150,6 @@ function getAllCharacter(){
     `;
     
     characterContainer.appendChild(characterEl);    
-    return {characterName}
   });
 }
 function removeCharacters(){
@@ -177,3 +176,44 @@ function filterBtnActive(){
   filterBtn.classList.toggle('active');
   dropdownContent.classList.toggle('show-dropdown');
 }
+
+function getFiltered(getHomeworld) {
+  const filteredCharacters = characters.filter(character => character.homeworld === getHomeworld)
+  filteredCharacters.forEach(function (item){
+    const characterName = item.name;
+    const characterHomeWorld = item.homeworld[0].toUpperCase() + item.homeworld.slice(1);;
+    const characterPic = item.pic;
+    console.log(characterName)
+    const characterEl = document.createElement('div');
+    characterEl.classList.add('col-sm-6');
+    characterEl.classList.add('col-md-4');
+    characterEl.classList.add('col-lg-3');
+    characterEl.classList.add('character-column');
+    characterEl.innerHTML += `
+        <div>
+            <div class="card">
+                <img src="${characterPic}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Name: ${characterName}</p> 
+                    <p class="card-text">Home World: ${characterHomeWorld}</p>
+                </div>
+            </div>
+        </div>  
+    `;
+    
+    characterContainer.appendChild(characterEl);    
+  });
+}
+/*const homeWorldsRaw = [];
+for (let i = 0; i < characters.length; i++) {
+  homeWorldsRaw.push(characters[i].homeworld);
+}
+
+const homeWorldUnique = [];
+for (let j = 0; j < homeWorldsRaw.length; j++) {
+  if(homeWorldUnique.includes(homeWorldsRaw[j])===false){
+    homeWorldUnique.push(homeWorldsRaw[j]);
+  }
+  console.log(homeWorldUnique);
+}
+*/

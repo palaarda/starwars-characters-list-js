@@ -131,7 +131,6 @@ function getAllCharacter(){
     const characterName = item.name;
     const characterHomeWorld = item.homeworld[0].toUpperCase() + item.homeworld.slice(1);;
     const characterPic = item.pic;
-    console.log(characterName)
     const characterEl = document.createElement('div');
     characterEl.classList.add('col-sm-6');
     characterEl.classList.add('col-md-4');
